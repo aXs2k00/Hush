@@ -1,0 +1,44 @@
+{
+  "name": "hush-codestral-assistant",
+  "displayName": "Hush Codestral Assistant",
+  "description": "Send prompts to a local Codestral proxy and render responses inside VS Code.",
+  "version": "0.1.0",
+  "publisher": "hush",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:codestralAssistant.ask"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codestralAssistant.ask",
+        "title": "Codestral: Ask Assistant"
+      }
+    ],
+    "configuration": {
+      "title": "Codestral Assistant",
+      "properties": {
+        "codestralAssistant.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:8787",
+          "description": "Base URL for the Codestral proxy server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/vscode": "^1.88.0",
+    "typescript": "^5.4.2"
+  }
+}
